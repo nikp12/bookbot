@@ -1,10 +1,13 @@
 from stats import count_words, count_characters, sort_on, sort_dictionary
-import os.path
+import os.path, sys
 
 def main():
-    filepath = input("Please give the relative path to the book, or enter 'q' to quit: ")
-    if filepath == "q":
-        quit()
+    if len(sys.argv) == 1:
+        print("Usage: python3 main.py <path_to_book>")
+        exit(1)
+    filepath = sys.argv[1]
+#    if filepath == "q":
+#        exit 0
     try:
         word_count = count_words(filepath)
     except Exception as e:
