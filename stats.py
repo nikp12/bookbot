@@ -1,4 +1,8 @@
+import os.path
+
 def get_book_text(filepath):
+    if os.path.isfile(filepath) == False:
+        raise Exception("File path is invalid.")
     with open(filepath) as f:
         f = f.read()
         return f
@@ -9,7 +13,6 @@ def count_words(filepath):
     text = text.split()
     for word in text:
         counter += 1
-    print(f"{counter} words found in the document")
     return counter
 
 def count_characters(filepath):
