@@ -21,3 +21,14 @@ def count_characters(filepath):
         else:
             letter_count[letter] = 1
     return letter_count
+
+def sort_on(dict):
+    return dict["num"]
+
+def sort_dictionary(dictionary):
+    dict_list = []
+    for k in dictionary:
+        k_dict = {"char":k,"num":dictionary[k]}
+        dict_list.append(k_dict)
+    dict_list.sort(reverse=True, key=sort_on)
+    return dict_list
